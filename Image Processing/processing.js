@@ -435,7 +435,7 @@ function readURL(input) {
       var reader = new FileReader();
       reader.onloadend = function() {
         var base64result = reader.result.substr(reader.result.indexOf(',') + 1);
-        createfile(input.files[0].name, "uploading a file", base64result)
+        createfile(input.files[0].name, "new file uploaded", base64result)
       }
       reader.readAsDataURL(input.files[0]);
     }
