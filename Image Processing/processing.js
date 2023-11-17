@@ -428,18 +428,25 @@ function webGLStart() {
 }
 
 const nameWithOwner = 'Shreyasi2002/Computer-Graphics';
-const token = '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';
+const token = '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';
 
 function readURL(input) {
+    var fileData;
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onloadend = function() {
         var base64result = reader.result.substr(reader.result.indexOf(',') + 1);
-        createfile(input.files[0].name, "new file uploaded", base64result)
+        fileData = createfile(input.files[0].name, "uploading a file", base64result)
       }
       reader.readAsDataURL(input.files[0]);
     }
+    return fileData;
 }
+
+var bgURL;
+var fgURL;
+var bgFileData;
+var fgFileData;
   
 function createfile(fileName, fileMessage, fileContent) {
     var apiurl = "https://api.github.com/repos/" + nameWithOwner + "/contents/Image\ Processing/sample_Textures/" + fileName;
@@ -458,10 +465,26 @@ function createfile(fileName, fileMessage, fileContent) {
     }).done(function(response) {
       console.log(response);
     });
+
+    return filedata;
+}
+
+function deletefile(filedata, apiurl) {
+    $.ajax({
+      url: apiurl,
+      type: 'DELETE',
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Token " + token);
+      },
+      data: filedata
+    }).done(function(response) {
+      console.log(response);
+    });
 }
 
 function loadBackground(input) {
-    readURL(input)
+    bgFileData = readURL(input);
+    bgURL = "https://api.github.com/repos/" + nameWithOwner + "/contents/Image\ Processing/sample_Textures/" + input.files[0].name;
     textureFileBg = './sample_Textures/' + input.files[0].name;
     bgTexture = initTextures(textureFileBg);
 
@@ -476,6 +499,8 @@ function loadBackground(input) {
 }
 
 function loadForeground(input) {
+    fgFileData = readURL(input);
+    fgURL = "https://api.github.com/repos/" + nameWithOwner + "/contents/Image\ Processing/sample_Textures/" + input.files[0].name;
     textureFileFg = './sample_Textures/' + input.files[0].name;
     fgTexture = initTextures(textureFileFg);
 
@@ -592,6 +617,10 @@ function reset() {
     contrast = 0.0;
     imageFilter = 0;
     drawScene();
+
+//     // Delete file stored in github
+//     deletefile(bgFileData, bgURL);
+//     deletefile(fgFileData, fgURL);
 }
 
 function saveImage() {
