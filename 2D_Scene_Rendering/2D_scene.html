@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Scenery</title>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+    <script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
+    <script type="text/javascript" src="2D_Scene.js"></script>
+  </head>
+
+  <body onload="webGLStart();">
+    <div class="row">
+        <div class="column">
+            <canvas
+            id="scenery"
+            style="border: none"
+            width="900"
+            height="900"
+            ></canvas>
+        </div>
+        <div class="column">
+            <h4>Change Draw Mode:</h4>
+            <!-- changeView() is the callback function for the button press event with the mode of drawing passed to JS as parameter -->
+            <button onclick="changeView('p')">Point View</button>
+            <button onclick="changeView('w')">Wireframe View</button>
+            <button onclick="changeView('s')">Solid View</button>
+        </div>
+    </div>
+
+  </body>
+</html>
