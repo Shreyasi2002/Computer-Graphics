@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>CS360_Assignment3</title>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+    <script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
+    <script type="text/javascript" src="3D_reflection.js"></script>
+    <style>
+        .container {
+            display: flex;
+            /* flex-direction: row; */
+            /* justify-content: center;
+            align-items: center; */
+        }
+
+        .child {
+            flex: 1;
+            padding: 10px;
+            padding-right: 20px;
+            /* padding-left: 20px; */
+        }
+
+        button {
+            /* float: left; */
+            align-items: center;
+            background-color: #fff;
+            border-radius: 24px;
+            box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+            box-sizing: border-box;
+            color: #3c4043;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "Google Sans", Roboto, Arial, sans-serif;
+            font-size: 14px;
+            height: 48px;
+            justify-content: center;
+            letter-spacing: .25px;
+            overflow: visible;
+            padding: 2px 24px;
+            position: relative;
+            width: auto;
+        }
+
+        button:hover {
+            background: #F6F9FE;
+            color: #174ea6;
+        }
+
+        button:active {
+            box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+            outline: none;
+        }
+
+        button:focus {
+            outline: none;
+            border: 2px solid #4285f4;
+        }
+    </style>
+  </head>
+
+  <body onload="webGLStart();">
+    <div class="container">
+        <div class="child" id="left">
+            <canvas
+                id="reflection"
+                style="border: none"
+                width="800"
+                height="800"
+            ></canvas>
+        </div>
+
+        <div class="child" id="right">
+            <h1>Reflection Mapping & 3D Texture Mapping</h1>
+            <h2>Move Around The Room</h2>
+            <button id="startAnimationButton">START</button>
+            <!-- <br/> -->
+            <button id="stopButton">STOP</button>
+
+            <h2>View From Top</h2>
+            <button id="topViewButton" onClick="topView();">CLICK ME</button>
+
+            <h2>Reset To Default Position</h2>
+            <button id="resetButton" onclick="window.location.reload()">RESET</button>
+
+            <h4>NOTE : Mouse movement is disabled for this assignment.</h4>
+        </div>
+    </div>
+  </body>
+</html>
