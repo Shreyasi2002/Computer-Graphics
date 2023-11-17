@@ -27,7 +27,9 @@ Assignments for the course - CS360 (Computer Graphics), IIT Kanpur
 
 <h2>Assignment 4</h2>
 <p>
-  An image processing application in GLSL shader. Load textures from the disk and process the pixel values to apply various types of simple image processing effects and then render the result on a square object using texture mapping.
+  An image processing application in GLSL shader. Load textures from the disk and process the pixel values to apply various types of simple image processing effects and then render the result on a square object using texture mapping. 
+  <li> Please download the code and run this application locally. </li>
+  <li> Keep the foreground and background images in the `sample_Textures` folder. </li>
 </p>
 <img src="https://github.com/Shreyasi2002/Computer-Graphics/blob/main/images/ass4.png" alt="Image-processor" width="300">
 
