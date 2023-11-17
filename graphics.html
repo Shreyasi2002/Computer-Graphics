@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Computer Graphics</title>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .child {
+            flex: 1;
+            /* padding-right: 20px; */
+        }
+
+        #left{
+            padding: 70px;
+            padding-top: 20px;
+        }
+
+        input[type=range] {
+            accent-color: #4285f4;
+        }
+
+        .slider {
+            overflow: hidden;
+            width: 300px;
+            margin: 10px;
+        }
+
+        button {
+            /* float: left; */
+            align-items: center;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+            box-sizing: border-box;
+            color: #3c4043;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "Google Sans", Roboto, Arial, sans-serif;
+            font-size: 14px;
+            height: 40px;
+            justify-content: center;
+            letter-spacing: .25px;
+            overflow: visible;
+            padding: 2px 24px;
+            position: relative;
+            width: auto;
+        }
+
+        button:hover {
+            background: #F6F9FE;
+            color: #174ea6;
+        }
+
+        button:active {
+            box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+            outline: none;
+        }
+
+        button:focus {
+            outline: none;
+            border: 2px solid #4285f4;
+        }
+    </style>
+  </head>
+
+  <body onload="webGLStart();">
+    <div class="container">
+        <div class="child" id="left">
+            <h1>CS360 - Introduction To Computer Graphics</h1>
+            <h2>Assignment 1</h2>
+            <p>
+                A 2D animated scene using only three basic shapes: square, triangle, and circle. Applying appropriate affine transformations to translate, rotate, and scale the shapes as needed with animation ...
+            </p>
+            <img src="./images/ass1.png" alt="2D Scene" width="300">
+            <br/> <br/>
+            <a href="./2D_Scene_Rendering/2D_scene.html">
+                <button>2D Scene Rendering</button>
+            </a>
+            <h2>Assignment 2</h2>
+            <p>
+                Three different shading algorithms: 
+                <ul>
+                    <li>Flat (per-face) shading, </li>
+                    <li>Gouraud (per-vertex) shading, and </li>
+                    <li>Phong (per-fragment) shading.</li>
+                </ul>
+                One canvas divided into three viewports, as shown below. Each viewport will have its own objects and will allow exclusive interaction using a mouse, i.e., when you are interacting with objects in one viewport, the objects in the other two viewports should stay as it is
+            </p>
+            <img src="./images/ass2.png" alt="Shading" width="600">
+            <br/> <br/>
+            <a href="./Shading/shading.html">
+                <button>Shading</button>
+            </a>
+            <h2>Assignment 3</h2>
+            <p>
+                A 3D animated scene that will showcase 3D texture mapping on objects and cubemap environment reflection mapping on a teapot. A skybox to give context to the objects in the scene
+            </p>
+            <img src="./images/ass3.png" alt="Reflection" width="300">
+            <br/> <br/>
+            <a href="./Reflection_Mapping/reflection.html">
+                <button>Shading</button>
+            </a>
+            <h2>Assignment 4</h2>
+            <p>
+                An image processing application in GLSL shader. Load textures from the disk and process the pixel values to apply various types of simple image processing effects and then render the result on a square object using texture mapping.
+            </p>
+            <img src="./images/ass4.png" alt="Image-processor" width="300">
+            <br/> <br/>
+            <a href="./Image Processing/image-processing.html">
+                <button>Image Processing</button>
+            </a>
+            <h2>Assignment 5</h2>
+            <p>
+                A ray tracer in GLSL shader containing spheres for simplicity. Implementing ray-traced shadow and reflection. For reflection, perform multiple levels of reflection, by allowing multiple bounces of the reflected ray.
+            </p>
+            <img src="./images/ass5.png" alt="Ray-tracer" width="300">
+            <br/> <br/>
+            <a href="./Ray Tracing/ray_tracing.html">
+                <button>Ray Tracing</button>
+            </a>
+            
+
+            
+  </body>
+</html>
