@@ -427,7 +427,41 @@ function webGLStart() {
     drawScene();
 }
 
+const nameWithOwner = 'Shreyasi2002/Computer-Graphics';
+const token = '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';
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        var base64result = reader.result.substr(reader.result.indexOf(',') + 1);
+        createfile(input.files[0].name, "uploading a file", base64result)
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+}
+  
+function createfile(fileName, fileMessage, fileContent) {
+    var apiurl = "https://api.github.com/repos/" + nameWithOwner + "/contents/Image\ Processing/sample_Textures/" + fileName;
+    var filedata = JSON.stringify({
+      "message": fileMessage,
+      "content": fileContent
+    });
+  
+    $.ajax({
+      url: apiurl,
+      type: 'PUT',
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Token " + token);
+      },
+      data: filedata
+    }).done(function(response) {
+      console.log(response);
+    });
+}
+
 function loadBackground(input) {
+    readURL(input)
     textureFileBg = './sample_Textures/' + input.files[0].name;
     bgTexture = initTextures(textureFileBg);
 
