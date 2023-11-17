@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Ray Tracing Operations</title>
+        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+        <script type="text/javascript" src="ray_tracing.js"></script>
+        <style>
+            .container {
+                display: flex;
+            }
+    
+            .child {
+                flex: 1;
+                /* padding-right: 20px; */
+            }
+
+            #left{
+                padding-top: 20px;
+                padding-left: 70px;
+            }
+            
+            #right {
+                padding-left: -50px;
+                float: left;
+                font-size: large;
+            }
+
+            input[type=range] {
+                accent-color: #4285f4;
+            }
+
+            .slider {
+                overflow: hidden;
+                width: 300px;
+                margin: 10px;
+            }
+    
+            button {
+                /* float: left; */
+                align-items: center;
+                background-color: #fff;
+                border-radius: 20px;
+                box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+                box-sizing: border-box;
+                color: #3c4043;
+                cursor: pointer;
+                display: inline-flex;
+                font-family: "Google Sans", Roboto, Arial, sans-serif;
+                font-size: 14px;
+                height: 40px;
+                justify-content: center;
+                letter-spacing: .25px;
+                overflow: visible;
+                padding: 2px 24px;
+                position: relative;
+                width: auto;
+            }
+    
+            button:hover {
+                background: #F6F9FE;
+                color: #174ea6;
+            }
+    
+            button:active {
+                box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+                outline: none;
+            }
+    
+            button:focus {
+                outline: none;
+                border: 2px solid #4285f4;
+            }
+        </style>
+    </head>
+
+    <body onload="webGLStart();">
+        <div class="container">
+            <div class="child" id="left">
+                <canvas
+                id="ray-tracer"
+                style="border: none"
+                width="600"
+                height="600"
+                ></canvas>
+            </div>
+            <div class="child" id="right">
+                <h1>Ray Tracing</h1>
+                <h3>Shading Mode :</h3>
+                <label>
+                    <input type="radio" name="processing" value="processing1" onclick="showPhong()"> Phong
+                </label>
+                
+                <label>
+                    <input type="radio" name="processing" value="processing2" onclick="showPhongShadow()"> Phong and Shadow
+                </label>
+
+                <label>
+                    <input type="radio" name="processing" value="processing3" onclick="showPhongReflection()"> Phong and Reflection
+                </label>
+
+                <label>
+                    <input type="radio" name="processing" value="processing4" checked onclick="showPhongShadowReflection()"> Phong, Shadow and Reflection
+                </label>
+                <br/>
+                <br/>
+                Move Light <input type="range" min="-20" max="20" step="0.1" value="0" class="slider" id="light" onclick="moveLight(value)" onmousemove="moveLight(value)"> <n id="light-loc">0</n>
+                <br/>
+                Bounce Limit <input type="range" min="1" max="5" step="1" value="1" class="slider" id="bounce" onclick="changeBounceLimit(value)" onmousemove="changeBounceLimit(value)"> <n id="bounce-limit">1</n>
+                <br/> <br/>
+
+                <button id="resetButton" onClick="window.location.reload()">RESET SCENE</button>
+                <br/>
+                <br/>
+                <n style="font-size: medium;">
+                    Note : It may take some time for the image to render for higher values of bounce limit.
+                </n>
+            </div>
+        </div>
+    </body>
+</html>
