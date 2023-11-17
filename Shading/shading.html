@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>3D Shading</title>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+    <script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
+    <script type="text/javascript" src="shading.js"></script>
+    <style>
+        body { 
+            margin: 50px; 
+        }
+        .wrt {
+            /* justify-content: center; */
+            align-items: center;
+        }
+        #flat {
+            float: left;
+            width: 400px;
+        }
+        #vertex {
+            float: left;
+            width: 400px;
+        }
+        #frag {
+            float: left;
+            width: 400px;
+        }
+        .slider {
+            width: 300px;
+            margin: 10px;
+        }
+        .slider-class {
+            float: left;
+        }
+        .button {
+            float: left;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 24px;
+            box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+            box-sizing: border-box;
+            color: #3c4043;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "Google Sans", Roboto, Arial, sans-serif;
+            font-size: 14px;
+            height: 48px;
+            justify-content: center;
+            letter-spacing: .25px;
+            overflow: visible;
+            padding: 2px 24px;
+            position: relative;
+            width: auto;
+        }
+
+        .button:hover {
+            background: #F6F9FE;
+            color: #174ea6;
+        }
+
+        .button:active {
+            box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+            outline: none;
+        }
+
+        .button:focus {
+            outline: none;
+            border: 2px solid #4285f4;
+        }
+    </style>
+  </head>
+
+  <body onload="webGLStart();">
+    <!-- Put the canvas in the centre -->
+    <div>
+      <h1>3D Shading</h1>
+        <canvas
+        id="assn2"
+        style="border: none"
+        width="1200"
+        height="400"
+        ></canvas>
+    </div>
+    <!-- Write headings for the three viewports in the same line -->
+    <div class="wrt" style="text-align: center">
+      <h2 id="flat">Per-Face Shading</h2> 
+      <h2 id="vertex">Gouraud Shading (Per-Vertex)</h2> 
+      <h2 id="frag">Phong Shading (Per-Fragment)</h2>
+    </div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="slider-class">
+        <b>Control Light Position :</b> <input type="range" class="slider" id="light-slider" min="-15.0" max="15.0" step="1.0" value="3.0">
+        <br/>
+        <b>Control Camera Zoom :</b> <input type="range" class="slider" id="camera-slider" min="0.0" max="15.0" step="1.0" value="2.0">
+    </div>
+    <br/>
+    <button class="button" onClick="window.location.reload();">RESET</button>
+  </body>
+</html>
